@@ -1,14 +1,13 @@
 
 px4_add_board(
-	VENDOR emlid
-	MODEL navio2
-	LABEL default
+	VENDOR px4
+	MODEL raspberrypi
+	LABEL experimental
 	PLATFORM posix
 	ARCHITECTURE cortex-a53
 	TOOLCHAIN arm-linux-gnueabihf
 	TESTING
 	DRIVERS
-		adc
 		#barometer # all available barometer drivers
 		barometer/ms5611
 		batt_smbus
@@ -19,18 +18,18 @@ px4_add_board(
 		gps
 		#imu # all available imu drivers
 		imu/mpu9250
-		imu/st/lsm9ds1
 		linux_pwm_out
 		#magnetometer # all available magnetometer drivers
 		magnetometer/hmc5883
-		magnetometer/lsm9ds1_mag
+		pca9685_pwm_out
 		pwm_out_sim
 		rc_input
+		rpi_rc_in
 		#telemetry # all available telemetry drivers
 	MODULES
 		airspeed_selector
 		attitude_estimator_q
-		battery_status
+		#battery_status
 		camera_feedback
 		commander
 		dataman
@@ -52,9 +51,9 @@ px4_add_board(
 		rc_update
 		rover_pos_control
 		sensors
+		temperature_compensation
 		sih
 		#simulator
-		temperature_compensation
 		vmount
 		vtol_att_control
 	SYSTEMCMDS
